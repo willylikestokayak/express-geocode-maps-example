@@ -15,6 +15,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
     db.place.findAll().then(function(places) {
+        console.log("in root get");
         res.render('index', { places: places });
     }).catch(function(err) {
         res.send({ message: 'error', error: err });
